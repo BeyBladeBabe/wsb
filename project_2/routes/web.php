@@ -26,3 +26,27 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('wsb', function(){
+    return view('wsb', ['firstName' => 'Franek', 'lastName' => 'Nowak']);
+});
+
+Route::get('pages/{page}', function(string $page){
+    $pages = [
+        'about' => 'Informacje o stronie',
+        'contact' => 'jakiś e-mail',
+        'home' => 'Strona domowa'
+    ];
+    return $pages[$page]??'Błędne dane wprowadzone przez użytkownika';
+})->name('pages_site');
+
+Route::get('/address/{city?}/{street?}/{postalCode?}', function(string $city = null, string $street = null, int $postalCode = null) {
+    $postalCode = $postalCode ? substr($postalCode, 0, 2) . '-' . substr($postalCode, 2, 3) : 'brak kodu pocztowego';
+    echo <<< SHOW
+    Miasto: $city<br>
+    Ulica: $street<br>
+    Kod pocztowy: $postalCode<hr>
+SHOW;
+})-> name('adres');
+
+Route::redirect('adres/{city?}/{street?}/{postalCode?}','/address/{city?}/{street?}/{postalCode?}');
