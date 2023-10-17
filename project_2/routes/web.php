@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,7 @@ SHOW;
 })-> name('adres');
 
 Route::redirect('adres/{city?}/{street?}/{postalCode?}','/address/{city?}/{street?}/{postalCode?}');
+
+//Route::get('show', [App\Http\Controllers\ShowController::class, 'show']);
+Route::get('show', [ShowController::class, 'show']);
+Route::get('showview', [ShowController::class, 'showView']);
