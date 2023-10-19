@@ -55,3 +55,6 @@ Route::redirect('adres/{city?}/{street?}/{postalCode?}','/address/{city?}/{stree
 //Route::get('show', [App\Http\Controllers\ShowController::class, 'show']);
 Route::get('show', [ShowController::class, 'show']);
 Route::get('showview', [ShowController::class, 'showView']);
+
+Route::view('userform', 'forms.user_form');
+Route::get('UserFormController', [App\Http\Controllers\UserFormController::class, 'showForm']);
