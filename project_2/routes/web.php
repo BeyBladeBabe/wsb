@@ -58,3 +58,5 @@ Route::get('showview', [ShowController::class, 'showView']);
 
 Route::view('userform', 'forms.user_form');
 Route::get('UserFormController', [App\Http\Controllers\UserFormController::class, 'showForm']);
+
+Route::get('db', [App\Http\Controllers\ShowDbController::class,'showDbTable']);
