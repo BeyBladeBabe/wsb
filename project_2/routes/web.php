@@ -60,3 +60,9 @@ Route::view('userform', 'forms.user_form');
 Route::get('UserFormController', [App\Http\Controllers\UserFormController::class, 'showForm']);
 
 Route::get('db', [App\Http\Controllers\ShowDbController::class,'showDbTable']);
+
+Route::get('car', [App\Http\Controllers\CarController::class,'showCarTable']);
+
+Route::view('AddUser', 'forms.addUserForm');
+
+Route::post('AddUser', [\App\Http\Controllers\CarController::class,'AddUser']);
